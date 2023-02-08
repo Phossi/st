@@ -1,9 +1,4 @@
 #!/bin/sh
-# Using external pipe with st, give a dmenu prompt of recent commands,
-# allowing the user to copy the output of one.
-# xclip required for this script.
-# By Jaywalker and Luke
 wikifile="$HOME/vimwiki/TODOs.wiki"
 ps1="$(grep "\S" "$wikifile" | tail -n 1 | sed 's/^\s*//' | cut -d' ' -f1)"
 chosen="$(grep -F "$ps1" "$wikifile" | sed '$ d' | tac | dmenu -p "TODOs:" -i -l 10 | sed 's/[^^]/[&]/g; s/\^/\\^/g')"
-eps1="$(echo "$ps1" | sed 's/[^^]/[&]/g; s/\^/\\^/g')"
