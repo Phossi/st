@@ -1,4 +1,4 @@
 #!/bin/sh
-wikifile="$HOME/vimwiki/TODOs.wiki"
+wikifile="$HOME/Nextcloud/vimwiki/TODOs.wiki"
 ps1="$(grep "\S" "$wikifile" | tail -n 1 | sed 's/^\s*//' | cut -d' ' -f1)"
-chosen="$(grep -F "$ps1" "$wikifile" | sed '$ d' | tac | dmenu -p "TODOs:" -i -l 10 | sed 's/[^^]/[&]/g; s/\^/\\^/g')"
+chosen="$(grep -F "$ps1" "$wikifile" | tac | dmenu -p "TODOs:" -i -l 10)"
